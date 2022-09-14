@@ -1,0 +1,7 @@
+imports:
+- { resource: '../vendor/bin/easy-coding-standard.yml' }
+
+parameters:
+  skip:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff.NotCamelCaps:
+    - '*Controllers/**'

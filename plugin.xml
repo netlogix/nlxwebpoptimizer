@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
+    <label lang="de">nlxWebpOptimizer</label>
+    <label lang="en">nlxWebpOptimizer</label>
+    <version>1.0.0</version>
+    <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
+    <license>Proprietary</license>
+    <link>https://websolutions.netlogix.de/</link>
+    <author>netlogix GmbH &amp; Co. KG</author>
+
+    <description lang="de">
+        Plugin, um automatisch Webp Varianten der Media-Assets zu generieren
+    </description>
+    <description lang="en">
+        Plugin to automatically generate webp variants of the media assets
+    </description>
+
+    <compatibility minVersion="5.7" />
+
+    <changelog version="1.0.0">
+        <changes lang="de">Erste Veröffentlichung</changes>
+        <changes lang="en">Initial Release</changes>
+    </changelog>
+</plugin>
+</plugin>
