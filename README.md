@@ -1,6 +1,6 @@
-# nlxWebpOptimizer
+# nlxWebPOptimizer
 
-## About nlxWebpOptimizer
+## About nlxWebPOptimizer
 
 Plugin to automatically generate webp variants of the media assets
 

@@ -10,11 +10,11 @@
         }
     ],
     "extra": {
-        "installer-name": "nlxWebpOptimizer"
+        "installer-name": "nlxWebPOptimizer"
     },
     "autoload": {
         "psr-4": {
-            "nlxWebpOptimizer\\": "."
+            "nlxWebPOptimizer\\": "."
         }
     },
     "require": {
@@ -30,8 +30,8 @@
         "sort-packages": true,
         "standalone-build-tools": {
             "phpspec-standalone.php7.4.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.4.phar",
-            "ecs-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/coding-standard-standalone.ecs.php7.3.phar",
-            "easy-coding-standard.yml": "http://build-tools.cloud.solutiondrive.de/phar/easy-coding-standard-php7.3.yml"
+            "ecs-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/coding-standard-standalone.ecs.php7.4.phar",
+            "ecs.php": "http://build-tools.cloud.solutiondrive.de/phar/ecs7.4.php"
         },
         "allow-plugins": {
             "solutiondrive/standalone-build-tools": true

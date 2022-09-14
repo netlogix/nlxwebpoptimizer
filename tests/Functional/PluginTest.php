@@ -1,20 +1,20 @@
 <?php
 
-namespace nlxWebpOptimizer\Tests;
+namespace nlxWebPOptimizer\Tests;
 
-use nlxWebpOptimizer\nlxWebpOptimizer as Plugin;
+use nlxWebPOptimizer\nlxWebPOptimizer as Plugin;
 use Shopware\Components\Test\Plugin\TestCase;
 
 class PluginTest extends TestCase
 {
     protected static $ensureLoadedPlugins = [
-        'nlxWebpOptimizer' => []
+        'nlxWebPOptimizer' => []
     ];
 
     public function testCanCreateInstance()
     {
         /** @var Plugin $plugin */
-        $plugin = Shopware()->Container()->get('kernel')->getPlugins()['nlxWebpOptimizer'];
+        $plugin = Shopware()->Container()->get('kernel')->getPlugins()['nlxWebPOptimizer'];
 
         $this->assertInstanceOf(Plugin::class, $plugin);
     }

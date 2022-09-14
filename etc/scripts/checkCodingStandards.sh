@@ -10,4 +10,4 @@ fi
 SEPERATOR=" "
 FOLDERS=$(printf "${SEPERATOR}%s" "${FILTERED_FOLDERS[@]}")
 
-vendor/bin/ecs-standalone.phar check --no-progress-bar -n -c etc/easy-coding-standard.yml $FOLDERS $@
+vendor/bin/ecs-standalone.phar check --no-progress-bar -n -c etc/ecs.php $FOLDERS $@

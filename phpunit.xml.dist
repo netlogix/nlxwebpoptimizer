@@ -12,7 +12,7 @@
          verbose="true">
 
     <testsuites>
-        <testsuite name="nlxWebpOptimizer_AllTests">
+        <testsuite name="nlxWebPOptimizer_AllTests">
             <directory>./tests/Unit</directory>
             <directory>./tests/Functional</directory>
         </testsuite>
