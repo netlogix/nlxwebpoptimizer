@@ -1,0 +1,40 @@
+{
+    "name": "netlogix/nlxwebpoptimizer",
+    "description": "Plugin to automatically generate webp variants of the media assets",
+    "type": "shopware-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "netlogix GmbH & Co. KG",
+            "email": "websolutions@netlogix.de"
+        }
+    ],
+    "extra": {
+        "installer-name": "nlxWebPOptimizer"
+    },
+    "autoload": {
+        "psr-4": {
+            "nlxWebPOptimizer\\": "."
+        }
+    },
+    "require": {
+        "php": "^7.4||^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "shopware/shopware": "^5.7",
+        "solutiondrive/sd-test-environment-shopware": "~0.2",
+        "solutiondrive/standalone-build-tools": "^2.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "standalone-build-tools": {
+            "phpspec-standalone.php7.4.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.4.phar",
+            "ecs-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/coding-standard-standalone.ecs.php7.4.phar",
+            "ecs.php": "http://build-tools.cloud.solutiondrive.de/phar/ecs7.4.php"
+        },
+        "allow-plugins": {
+            "solutiondrive/standalone-build-tools": true
+        }
+    }
+}

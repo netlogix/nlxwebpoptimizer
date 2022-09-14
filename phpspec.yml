@@ -1,0 +1,6 @@
+suites:
+  default:
+    namespace: nlxWebPOptimizer
+    psr4_prefix: nlxWebPOptimizer
+    spec_path: ./
+    src_path: ./
