@@ -4,19 +4,19 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="nlxWebpOptimizer.nlx_webp_optimizer" class="nlxWebpOptimizer\Optimizer\WebpOptimizer"/>
+        <service id="nlxWebPOptimizer\Optimizer\WebpOptimizer"/>
 
-        <service id="nlxWebpOptimizer.optimizer_service" class="nlxWebpOptimizer\Services\OptimizerService"
+        <service id="nlxWebPOptimizer\Services\OptimizerService"
                  decorates="shopware_media.optimizer_service">
-            <argument type="service" id="nlxWebpOptimizer.optimizer_service.inner"/>
-            <argument type="service" id="nlxWebpOptimizer.nlx_webp_optimizer"/>
+            <argument type="service" id="nlxWebPOptimizer\Services\OptimizerService.inner"/>
+            <argument type="service" id="nlxWebPOptimizer\Optimizer\WebpOptimizer"/>
         </service>
 
-        <service id="nlxWebpOptimizer.commands.media_optimize" class="nlxWebpOptimizer\Commands\OptimizeCommand">
+        <service id="nlxWebPOptimizer\Commands\OptimizeCommand">
             <tag name="console.command" command="nlx:webpoptimizer:optimize"/>
         </service>
 
-        <service id="thumbnail_generator_basic" class="nlxWebpOptimizer\Components\Thumbnail\Generator\Basic">
+        <service id="thumbnail_generator_basic" class="nlxWebPOptimizer\Components\Thumbnail\Generator\Basic">
             <argument type="service" id="Shopware_Components_Config"/>
             <argument type="service" id="Shopware\Bundle\MediaBundle\MediaServiceInterface"/>
             <argument type="service" id="Shopware\Bundle\MediaBundle\OptimizerService"/>
