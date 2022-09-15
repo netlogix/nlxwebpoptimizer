@@ -3,4 +3,24 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <services>
+        <service id="nlxWebPOptimizer\Optimizer\WebpOptimizer"/>
+
+        <service id="nlxWebPOptimizer\Services\OptimizerService"
+                 decorates="shopware_media.optimizer_service">
+            <argument type="service" id="nlxWebPOptimizer\Services\OptimizerService.inner"/>
+            <argument type="service" id="nlxWebPOptimizer\Optimizer\WebpOptimizer"/>
+        </service>
+
+        <service id="nlxWebPOptimizer\Commands\OptimizeCommand">
+            <tag name="console.command" command="nlx:webpoptimizer:optimize"/>
+        </service>
+
+        <service id="thumbnail_generator_basic" class="nlxWebPOptimizer\Components\Thumbnail\Generator\Basic">
+            <argument type="service" id="Shopware_Components_Config"/>
+            <argument type="service" id="Shopware\Bundle\MediaBundle\MediaServiceInterface"/>
+            <argument type="service" id="Shopware\Bundle\MediaBundle\OptimizerService"/>
+            <argument type="service" id="shopware_media.strategy"/>
+        </service>
+    </services>
 </container>
