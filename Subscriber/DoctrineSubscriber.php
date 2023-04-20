@@ -24,7 +24,7 @@ class DoctrineSubscriber implements EventSubscriber
         $this->mediaService = $mediaService;
     }
 
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
         return [
             Events::postRemove
@@ -41,8 +41,8 @@ class DoctrineSubscriber implements EventSubscriber
         $encodedPath = $this->mediaService->encode($entity->getPath());
         $mediaWebpPath = $encodedPath . '.webp';
 
-        if (file_exists($mediaWebpPath)) {
-            unlink($mediaWebpPath);
+        if (\file_exists($mediaWebpPath)) {
+            \unlink($mediaWebpPath);
         }
         $thumbnailFilePaths = $entity->getThumbnailFilePaths();
 
@@ -50,8 +50,8 @@ class DoctrineSubscriber implements EventSubscriber
             $encodedThumbnailPath = $this->mediaService->encode($thumbnailFilePath);
             $thumbnailWebpPath = $encodedThumbnailPath . '.webp';
 
-            if (file_exists($thumbnailWebpPath)) {
-                unlink($thumbnailWebpPath);
+            if (\file_exists($thumbnailWebpPath)) {
+                \unlink($thumbnailWebpPath);
             }
         }
     }

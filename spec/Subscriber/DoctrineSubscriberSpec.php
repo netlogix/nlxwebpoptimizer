@@ -83,13 +83,13 @@ class DoctrineSubscriberSpec extends ObjectBehavior
         $entity->getThumbnailFilePaths()
             ->willReturn(['path/to/123456789-thumbnail.jpg']);
 
-        expect(file_exists($root->url() . '/media/image/ab/cd/123456789.jpg.webp'))->toBe(true);
-        expect(file_exists($root->url() . '/media/image/ef/gh/123456789-thumbnail.jpg'))->toBe(true);
+        \expect(file_exists($root->url() . '/media/image/ab/cd/123456789.jpg.webp'))->toBe(true);
+        \expect(file_exists($root->url() . '/media/image/ef/gh/123456789-thumbnail.jpg'))->toBe(true);
 
         $this->postRemove($args);
 
-        expect(file_exists($root->url() . '/media/image/ab/cd/123456789.jpg.webp'))->toBe(false);
-        expect(file_exists($root->url() . '/media/image/ef/gh/123456789-thumbnail.jpg.webp'))->toBe(false);
+        \expect(file_exists($root->url() . '/media/image/ab/cd/123456789.jpg.webp'))->toBe(false);
+        \expect(file_exists($root->url() . '/media/image/ef/gh/123456789-thumbnail.jpg.webp'))->toBe(false);
     }
 
     public function it_should_do_nothing_if_entity_is_not_media(
