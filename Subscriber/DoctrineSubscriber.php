@@ -24,6 +24,9 @@ class DoctrineSubscriber implements EventSubscriber
         $this->mediaService = $mediaService;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getSubscribedEvents(): array
     {
         return [
@@ -31,11 +34,11 @@ class DoctrineSubscriber implements EventSubscriber
         ];
     }
 
-    public function postRemove(LifecycleEventArgs $args)
+    public function postRemove(LifecycleEventArgs $args): void
     {
         $entity = $args->getEntity();
 
-        if (false === $entity instanceof Media || $entity->getType() !== Media::TYPE_IMAGE) {
+        if (false === $entity instanceof Media || Media::TYPE_IMAGE !== $entity->getType()) {
             return;
         }
         $encodedPath = $this->mediaService->encode($entity->getPath());
