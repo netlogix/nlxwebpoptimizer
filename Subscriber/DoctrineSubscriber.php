@@ -42,25 +42,22 @@ class DoctrineSubscriber implements EventSubscriber
             return;
         }
 
-        $encodedPath = $this->mediaService->encode($entity->getPath());
-        $mediaWebpPath = $encodedPath . '.webp';
-
-        $this->deleteImage($mediaWebpPath);
+        $this->deleteImage($entity->getPath());
 
         $thumbnailFilePaths = $entity->getThumbnailFilePaths();
 
         foreach ($thumbnailFilePaths as $thumbnailFilePath) {
-            $encodedThumbnailPath = $this->mediaService->encode($thumbnailFilePath);
-            $thumbnailWebpPath = $encodedThumbnailPath . '.webp';
-
-            $this->deleteImage($thumbnailWebpPath);
+            $this->deleteImage($thumbnailFilePath);
         }
     }
 
     private function deleteImage(string $path): void
     {
-        if (\file_exists($path)) {
-            \unlink($path);
+        $encodedPath = $this->mediaService->encode($path);
+        $mediaWebpPath = $encodedPath . '.webp';
+
+        if (\file_exists($mediaWebpPath)) {
+            \unlink($mediaWebpPath);
         }
     }
 }
