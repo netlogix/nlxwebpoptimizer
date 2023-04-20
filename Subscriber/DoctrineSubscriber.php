@@ -41,12 +41,14 @@ class DoctrineSubscriber implements EventSubscriber
         if (false === $entity instanceof Media || Media::TYPE_IMAGE !== $entity->getType()) {
             return;
         }
+
         $encodedPath = $this->mediaService->encode($entity->getPath());
         $mediaWebpPath = $encodedPath . '.webp';
 
         if (\file_exists($mediaWebpPath)) {
             \unlink($mediaWebpPath);
         }
+
         $thumbnailFilePaths = $entity->getThumbnailFilePaths();
 
         foreach ($thumbnailFilePaths as $thumbnailFilePath) {

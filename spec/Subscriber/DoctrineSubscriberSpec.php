@@ -13,7 +13,6 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
 use nlxWebPOptimizer\Subscriber\DoctrineSubscriber;
 use org\bovigo\vfs\vfsStream;
-use org\bovigo\vfs\vfsStreamDirectory;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Shopware\Bundle\MediaBundle\MediaServiceInterface;
