@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">nlxWebPOptimizer</label>
     <label lang="en">nlxWebPOptimizer</label>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -21,5 +21,9 @@
     <changelog version="1.0.0">
         <changes lang="de">Erste Veröffentlichung</changes>
         <changes lang="en">Initial Release</changes>
+    </changelog>
+    <changelog version="1.1.0">
+        <changes lang="de">Beim löschen eines Bildes wird auch die WebP Datei gelöscht</changes>
+        <changes lang="en">When deleting an image, the WebP file is also deleted</changes>
     </changelog>
 </plugin>
