@@ -12,16 +12,16 @@ namespace nlxWebPOptimizer\Subscriber;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Events;
-use Shopware\Bundle\MediaBundle\MediaServiceInterface;
+use Shopware\Bundle\MediaBundle\Strategy\StrategyInterface;
 use Shopware\Models\Media\Media;
 
 class DoctrineSubscriber implements EventSubscriber
 {
-    private MediaServiceInterface $mediaService;
+    private StrategyInterface $strategy;
 
-    public function __construct(MediaServiceInterface $mediaService)
+    public function __construct(StrategyInterface $strategy)
     {
-        $this->mediaService = $mediaService;
+        $this->strategy = $strategy;
     }
 
     /**
@@ -53,7 +53,7 @@ class DoctrineSubscriber implements EventSubscriber
 
     private function deleteImage(string $path): void
     {
-        $encodedPath = $this->mediaService->encode($path);
+        $encodedPath = $this->strategy->encode($path);
         $mediaWebpPath = $encodedPath . '.webp';
 
         if (\file_exists($mediaWebpPath)) {
