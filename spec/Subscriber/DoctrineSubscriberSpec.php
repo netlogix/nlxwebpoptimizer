@@ -15,16 +15,16 @@ use nlxWebPOptimizer\Subscriber\DoctrineSubscriber;
 use org\bovigo\vfs\vfsStream;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Shopware\Bundle\MediaBundle\MediaServiceInterface;
+use Shopware\Bundle\MediaBundle\Strategy\StrategyInterface;
 use Shopware\Models\Article\Article;
 use Shopware\Models\Media\Media;
 
 class DoctrineSubscriberSpec extends ObjectBehavior
 {
     public function let(
-        MediaServiceInterface $mediaService
+        StrategyInterface $strategy
     ): void {
-        $this->beConstructedWith($mediaService);
+        $this->beConstructedWith($strategy);
     }
 
     public function it_is_initializable(): void
@@ -42,7 +42,7 @@ class DoctrineSubscriberSpec extends ObjectBehavior
     public function it_should_remove_webp_files(
         LifecycleEventArgs $args,
         Media $entity,
-        MediaServiceInterface $mediaService
+        StrategyInterface $strategy
     ): void {
         $structure = [
             'media' => [
@@ -73,10 +73,10 @@ class DoctrineSubscriberSpec extends ObjectBehavior
         $entity->getPath()
             ->willReturn('path/to/123456789.jpg');
 
-        $mediaService->encode('path/to/123456789.jpg')
+        $strategy->encode('path/to/123456789.jpg')
             ->willReturn($root->url() . '/media/image/ab/cd/123456789.jpg');
 
-        $mediaService->encode('path/to/123456789-thumbnail.jpg')
+        $strategy->encode('path/to/123456789-thumbnail.jpg')
             ->willReturn($root->url() . '/media/image/ef/gh/123456789-thumbnail.jpg');
 
         $entity->getThumbnailFilePaths()
@@ -94,12 +94,12 @@ class DoctrineSubscriberSpec extends ObjectBehavior
     public function it_should_do_nothing_if_entity_is_not_media(
         LifecycleEventArgs $args,
         Article $article,
-        MediaServiceInterface $mediaService
+        StrategyInterface $strategy
     ): void {
         $args->getEntity()
             ->willReturn($article);
 
-        $mediaService->encode(Argument::any())
+        $strategy->encode(Argument::any())
             ->shouldNotBeCalled();
 
         $this->postRemove($args);
@@ -108,7 +108,7 @@ class DoctrineSubscriberSpec extends ObjectBehavior
     public function it_should_do_nothing_if_media_is_not_image(
         LifecycleEventArgs $args,
         Media $entity,
-        MediaServiceInterface $mediaService
+        StrategyInterface $strategy
     ): void {
         $args->getEntity()
             ->willReturn($entity);
@@ -116,7 +116,7 @@ class DoctrineSubscriberSpec extends ObjectBehavior
         $entity->getType()
             ->willReturn(Media::TYPE_VECTOR);
 
-        $mediaService->encode(Argument::any())
+        $strategy->encode(Argument::any())
             ->shouldNotBeCalled();
 
         $this->postRemove($args);
