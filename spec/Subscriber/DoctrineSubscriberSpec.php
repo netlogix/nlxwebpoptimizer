@@ -15,7 +15,6 @@ use nlxWebPOptimizer\Subscriber\DoctrineSubscriber;
 use org\bovigo\vfs\vfsStream;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Shopware\Bundle\MediaBundle\MediaServiceInterface;
 use Shopware\Bundle\MediaBundle\Strategy\StrategyInterface;
 use Shopware\Models\Article\Article;
 use Shopware\Models\Media\Media;
